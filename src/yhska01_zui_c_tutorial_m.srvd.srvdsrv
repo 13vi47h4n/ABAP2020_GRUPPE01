@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for Tutorial'
+define service YHSKA01_ZUI_C_Tutorial_M {
+  expose YHSKA_C_TUTORIALS as TutorialProcessor;
+}

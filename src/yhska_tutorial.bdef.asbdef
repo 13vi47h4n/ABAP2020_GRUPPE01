@@ -1,0 +1,12 @@
+managed; // implementation in class zbp_hska_tutorial unique;
+
+define behavior for YHSKA_TUTORIAL //alias <alias_name>
+//persistent table <???>
+//lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+}
