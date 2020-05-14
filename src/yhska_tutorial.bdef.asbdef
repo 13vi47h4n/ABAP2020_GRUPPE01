@@ -1,12 +1,41 @@
-managed; // implementation in class zbp_hska_tutorial unique;
+managed implementation in class yhska_impl_url unique;
 
-define behavior for YHSKA_TUTORIAL //alias <alias_name>
-//persistent table <???>
-//lock master
+define behavior for YHSKA_TUTORIAL alias Tutorial24
+persistent table yhska_url
+
 //authorization master ( instance )
-//etag master <field_name>
+etag master last_changed_at
+lock master
 {
+  // semantic key is calculated in a determination
+  field ( readonly, numbering : managed ) id;
+  // administrative fields (read only)W
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by, techid;
+
+  // mandatory fields that are required to create a tutorial entry
+  field ( mandatory ) name, url, description, rating;
+
+  //standard operations
   create;
   update;
   delete;
+
+    // instance action and dynamic action control
+  action ( features : instance ) zeroStars result [1] $self;
+  action ( features : instance ) oneStars result [1] $self;
+  action ( features : instance ) twoStars result [1] $self;
+  action ( features : instance ) threeStars result [1] $self;
+  action ( features : instance ) fourStars result [1] $self;
+  action ( features : instance ) fiveStars result [1] $self;
+
+
+  // validations
+  validation validateTechnology on save { field name; }
+  validation validateURL on save { field url; }
+  //validation validateDates on save { field begin_date, end_date; }
+
+  // determination
+    determination CalculateTutorialID on modify
+
+    { create; }
 }

@@ -1,0 +1,18 @@
+projection;
+
+define behavior for YHSKA_C_TUTORIALS alias Tutorial24Processor
+use etag
+{
+
+  use create;
+  use update;
+  use delete;
+
+  use action zeroStars;
+  use action oneStars;
+  use action twoStars;
+  use action threeStars;
+  use action fourStars;
+  use action fiveStars;
+
+}

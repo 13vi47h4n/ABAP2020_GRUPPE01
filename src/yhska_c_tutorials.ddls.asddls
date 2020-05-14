@@ -3,6 +3,10 @@
 
 //@UI: {
 // headerInfo: { typeName: 'Tutorial', typeNamePlural: 'Tutorials', title: { type: #STANDARD, value: 'TutorialID' } } }
+@UI.headerInfo: {
+        typeName: 'Tutorials24.de',
+        typeNamePlural: 'Tutorials24.de'
+    }
 
 @Search.searchable: true
 define root view entity YHSKA_C_TUTORIALS
@@ -16,7 +20,7 @@ define root view entity YHSKA_C_TUTORIALS
 
       @UI.hidden: true
       key id       as TutID,
-      
+
 //      @UI.hidden: true
 //      key client     as clnt,
 
@@ -36,9 +40,16 @@ define root view entity YHSKA_C_TUTORIALS
       url      as URL,
 
  
-      @UI.lineItem: [ { position:60 , importance: #MEDIUM ,type: #AS_DATAPOINT } ]
+      @UI.lineItem: [ { position:60 , importance: #MEDIUM ,type: #AS_DATAPOINT },
+      { type: #FOR_ACTION, dataAction: 'fiveStars', label: '5' }, 
+      { type: #FOR_ACTION, dataAction: 'fourStars', label: '4' },
+      { type: #FOR_ACTION, dataAction: 'threeStars', label: '3' },
+      { type: #FOR_ACTION, dataAction: 'twoStars', label: '2' },
+      { type: #FOR_ACTION, dataAction: 'oneStars', label: '1' },
+      { type: #FOR_ACTION, dataAction: 'zeroStars', label: '0' }]
       @UI.dataPoint: { title:'Product Rating', description: 'Rating Indicator', visualization: #RATING }
-      //@UI.identification: [ { position: 60, label: 'Rating' } ]
+      @UI.identification: [ { position: 60, label: 'Rating' } ]
+      
       rating   as Rating,
       
       @UI.identification: [ { position: 70, label: 'Description' } ]

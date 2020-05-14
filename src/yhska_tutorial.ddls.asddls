@@ -12,8 +12,7 @@ define root view YHSKA_TUTORIAL
 
 
   key id,
-      client,
-      techid,
+  techid,
       _TECH.name,
       url,
       sitename,

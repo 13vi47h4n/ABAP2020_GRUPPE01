@@ -1,0 +1,12 @@
+CLASS yhska_impl_url DEFINITION
+PUBLIC
+ABSTRACT
+FINAL
+FOR BEHAVIOR OF yhska_tutorial.
+ENDCLASS.
+
+
+
+CLASS yhska_impl_url IMPLEMENTATION.
+
+ENDCLASS.
